@@ -45,6 +45,12 @@ pastebtn.forEach((btn) => {
   });
 });
 
+document.querySelectorAll("button.copy").forEach((btn) => {
+  btn.addEventListener("mouseup", () => {
+    copyToClipboard();
+  });
+});
+
 /* Make focusing input select all */
 
 /** @type HTMLInputElement[] | []*/
@@ -76,14 +82,18 @@ termElem.focus();
 /** @type HTMLFormElement | null */
 const formElem = document.querySelector("form");
 
-/* Main logic here */
-formElem.addEventListener("submit", async (e) => {
-  e.preventDefault();
+async function copyToClipboard() {
   const result = getResult();
 
   /* Give result to user */
   resultElem.focus();
   await navigator.clipboard.writeText(result);
+}
+
+/* Main logic here */
+formElem.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  await copyToClipboard();
 });
 
 /* Live showing output */
