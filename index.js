@@ -13,6 +13,21 @@ const termElem = document.getElementById("term");
 /** @type HTMLInputElement | null */
 const resultElem = document.getElementById("result");
 
+function getResult() {
+  /* Get other two inputs' data */
+  const fileurl = fileurlElem.value.trim();
+  const term = termElem.value.trim();
+  const result = `${fileurl}#${term}`;
+  resultElem.value = result;
+  return result;
+}
+
+function resetInputs() {
+  resultElem.value = "";
+  termElem.value = "";
+  termElem.focus();
+}
+
 /* Paste into respective text input */
 pastebtn.forEach((btn) => {
   btn.addEventListener("click", async () => {
@@ -64,14 +79,28 @@ const formElem = document.querySelector("form");
 /* Main logic here */
 formElem.addEventListener("submit", async (e) => {
   e.preventDefault();
-
-  /* Get other two inputs' data */
-  const fileurl = fileurlElem.value.trim();
-  const term = termElem.value.trim();
-  const result = `${fileurl}#${term}`;
+  const result = getResult();
 
   /* Give result to user */
-  resultElem.value = result;
   resultElem.focus();
   await navigator.clipboard.writeText(result);
+});
+
+/* Live showing output */
+termElem.addEventListener("keyup", () => {
+  getResult();
+});
+
+/* Alt-R for reset without refresh */
+document.addEventListener("keydown", (e) => {
+  if ((e.altKey || e.metaKey) && e.key === "r") {
+    resetInputs();
+  }
+});
+
+/* R on resultElem to reset */
+resultElem.addEventListener("keyup", (e) => {
+  if (e.key === "r") {
+    resetInputs();
+  }
 });
