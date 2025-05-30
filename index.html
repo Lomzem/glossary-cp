@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GlossaryCP</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Glossary Copy!</h1>
+      <form>
+        <!-- Button is purely for form submission on <Enter> -->
+        <button type="submit" style="display: none"></button>
+        <label for="fileurl">File URL</label>
+        <div class="form-group">
+          <input id="fileurl" type="text" name="fileurl" />
+          <button aria-controls="fileurl" class="paste" type="button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-clipboard-paste-icon lucide-clipboard-paste"
+            >
+              <path d="M11 14h10" />
+              <path d="M16 4h2a2 2 0 0 1 2 2v1.344" />
+              <path d="m17 18 4-4-4-4" />
+              <path
+                d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.793-1.113"
+              />
+              <rect x="8" y="2" width="8" height="4" rx="1" />
+            </svg>
+            Paste
+          </button>
+        </div>
+
+        <label for="term">Glossary Term</label>
+        <div class="form-group">
+          <input id="term" type="text" name="term" />
+          <button aria-controls="term" class="paste" type="button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-clipboard-paste-icon lucide-clipboard-paste"
+            >
+              <path d="M11 14h10" />
+              <path d="M16 4h2a2 2 0 0 1 2 2v1.344" />
+              <path d="m17 18 4-4-4-4" />
+              <path
+                d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.793-1.113"
+              />
+              <rect x="8" y="2" width="8" height="4" rx="1" />
+            </svg>
+            Paste
+          </button>
+        </div>
+      </form>
+      <section id="outputsect">
+        <label>Output</label>
+        <output>
+          <div class="form-group">
+            <input type="text" name="result" id="result" readonly value="" />
+            <button aria-controls="result" class="copy" type="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-clipboard-copy-icon lucide-clipboard-copy"
+              >
+                <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+                <path
+                  d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"
+                />
+                <path d="M16 4h2a2 2 0 0 1 2 2v4" />
+                <path d="M21 14H11" />
+                <path d="m15 10-4 4 4 4" />
+              </svg>
+              Copy
+            </button>
+          </div>
+        </output>
+      </section>
+      <section id="tipsect">
+        <p>Tips for <strong>Efficiency</strong></p>
+        <ul>
+          <li>
+            You can Refresh (<kbd>Control</kbd>+<kbd>R</kbd>), and still
+            <strong>preserve the File URL</strong>
+          </li>
+          <li>
+            The Glossary Term gets focused on page load. You don't need to use
+            your mouse! Simply refresh!
+          </li>
+          <li>
+            Pressing
+            <kbd>Enter</kbd>
+            in the <em>Glossary Term</em> input
+            <strong>automatically focuses and copies the output</strong>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
